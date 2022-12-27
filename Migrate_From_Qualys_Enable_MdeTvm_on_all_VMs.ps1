@@ -383,7 +383,7 @@ $Header = @{
 #------------------------------------------------------------------------------------------------------------
 
 # Scope (MG) | You can define the scope for the targetting, supporting management groups or tenant root id (all subs)
-$Global:ManagementGroupScope                                = "f0fa27a0-8e7c-4f63-9a77-ec94786b7c9e" # can mg e.g. mg-company or AAD Id (=Tenant Root Id)
+$Global:ManagementGroupScope                                = "xxxx" # can mg e.g. mg-company or AAD Id (=Tenant Root Id)
 
 # Exclude list | You can exclude certain subs, resource groups, resources, if you don't want to have them as part of the scope
 $global:Exclude_Subscriptions                               = @("xxxxxxxxxxxxxxxxxxxxxx") # for example platform-connectivity
