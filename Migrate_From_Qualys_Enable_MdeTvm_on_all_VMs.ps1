@@ -18,11 +18,11 @@
     VERSION: 2212
 
     .COPYRIGHT
-    @mortenknudsendk on Twitter (new followers appreciated) | https://mortenknudsen.net
+    @mortenknudsendk on Twitter
+    Blog: https://mortenknudsen.net
     
     .LICENSE
     Licensed under the MIT license.
-    Please credit me if you fint this script useful and do some cool things with it.
 
     .WARRANTY
     Use at your own risk, no warranty given!
