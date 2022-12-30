@@ -444,7 +444,7 @@ $Global:Scope_Computer_Array
 
                     If ($StatusQualys.properties.provisioningState -eq "Succeeded")
                         {
-                            Write-Output "  Deprovisioning Qualys Vulnerability Assessment on resource $($Computer)"
+                            Write-Output "  Deprovisioning Qualys Vulnerability Assessment on resource $($VM.ComputerName)"
                             $Uri = "https://management.azure.com$($VM.Id)/providers/Microsoft.Security/serverVulnerabilityAssessments/default?api-version=2015-06-01-preview"
 
                             $Delete = Invoke-RestMethod $uri -Method DELETE -Headers $Header -ContentType "application/json" -ErrorAction SilentlyContinue
@@ -460,7 +460,7 @@ $Global:Scope_Computer_Array
                         }
                     Catch
                         {
-                            Write-Output "  Enabling MdeTvm Vulnerability Assessment on $($Computer)"
+                            Write-Output "  Enabling MdeTvm Vulnerability Assessment on $($VM.ComputerName)"
                             $Uri = "https://management.azure.com$($VM.Id)/providers/Microsoft.Security/serverVulnerabilityAssessments/mdetvm?api-version=2015-06-01-preview"
 
                             $Update = Invoke-RestMethod $uri -Method PUT -Headers $Header -ContentType "application/json"
@@ -470,12 +470,12 @@ $Global:Scope_Computer_Array
 
                     If ( ($StatusMdeTvm.properties.provisioningState -eq "Succeeded") -and ($StatusMdeTvm.name -eq "MdeTvm") )
                         {
-                            Write-Output "  MdeTvm Vulnerability Assessment solution already enabled on resource $($Computer) ... skipping !"
+                            Write-Output "  MdeTvm Vulnerability Assessment solution already enabled on resource $($VM.ComputerName) ... skipping !"
                         }
                     Elseif ( (!$StatusQualys) -and (!$StatusMdeTvm) )
                         {
                             Write-Output ""
-                            Write-Output "  Enabling MdeTvm Vulnerability Assessment on $($Computer)"
+                            Write-Output "  Enabling MdeTvm Vulnerability Assessment on $($VM.ComputerName)"
                             $Uri = "https://management.azure.com$($VM.Id)/providers/Microsoft.Security/serverVulnerabilityAssessments/mdetvm?api-version=2015-06-01-preview"
 
                             $Update = Invoke-RestMethod $uri -Method PUT -Headers $Header -ContentType "application/json"
