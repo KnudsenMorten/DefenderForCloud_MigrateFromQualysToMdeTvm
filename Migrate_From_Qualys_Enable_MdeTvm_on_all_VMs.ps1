@@ -432,6 +432,7 @@ $Global:Scope_Computer_Array
 
                 # Check if VM has been enabled with Qualys as Server Vulnerability Assessment solution
                     $Uri = "https://management.azure.com$($VM.Id)/providers/Microsoft.Security/serverVulnerabilityAssessments/default?api-version=2015-06-01-preview"
+                    $StatusQualys = $null
                     Try
                         {
                             $StatusQualys = Invoke-RestMethod $uri -Method GET -Headers $Header -ContentType "application/json" -ErrorAction SilentlyContinue
